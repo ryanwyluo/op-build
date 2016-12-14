@@ -9,6 +9,7 @@ config BR2_PACKAGE_OPENPOWER_PNOR
         select BR2_PACKAGE_CAPP_UCODE
         select BR2_PACKAGE_BARRELEYE_XML if (BR2_OPENPOWER_XML_PACKAGE = "barreleye-xml")
         select BR2_PACKAGE_FIRESTONE_XML if (BR2_OPENPOWER_XML_PACKAGE = "firestone-xml")
+        select BR2_PACKAGE_REDDRAGON_XML if (BR2_OPENPOWER_XML_PACKAGE = "reddragon-xml")
         select BR2_PACKAGE_GARRISON_XML if (BR2_OPENPOWER_XML_PACKAGE = "garrison-xml")
         select BR2_PACKAGE_HABANERO_XML if (BR2_OPENPOWER_XML_PACKAGE = "habanero-xml")
         select BR2_PACKAGE_PALMETTO_XML if (BR2_OPENPOWER_XML_PACKAGE = "palmetto-xml")

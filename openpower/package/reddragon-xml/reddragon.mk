@@ -6,7 +6,7 @@
 
 #REDDRAGON_XML_VERSION ?= 201610211023aaaa8ef279aef2d0a0fed3ded8dd
 REDDRAGON_XML_VERSION ?= 20161207ffeeaaaa8ef279aef2d0a0fed3ded8dd
-REDDRAGON_XML_SITE ?= $(call github,open-power,reddragon-xml,$(REDDRAGON_XML_VERSION))
+REDDRAGON_XML_SITE ?= $(call github,ryanwyluo,reddragon-xml,$(REDDRAGON_XML_VERSION))
 
 REDDRAGON_XML_LICENSE = Apache-2.0
 REDDRAGON_XML_DEPENDENCIES = hostboot openpower-mrw common-p8-xml

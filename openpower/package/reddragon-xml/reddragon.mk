@@ -4,10 +4,7 @@
 #
 ################################################################################
 
-#REDDRAGON_XML_VERSION ?= 201610211023aaaa8ef279aef2d0a0fed3ded8dd
-#REDDRAGON_XML_VERSION ?= 20161207ffeeaaaa8ef279aef2d0a0fed3ded8dd
-#REDDRAGON_XML_VERSION ?= 20161216ffeeaaaa8ef279aef2d0a0fed3ded8dd
-REDDRAGON_XML_VERSION ?= 58fa8e9a2633cbaa0261089167057cf98e9d8d4f
+REDDRAGON_XML_VERSION ?= a66d155f095236e17012ddd99b3ae11234f0bb48
 REDDRAGON_XML_SITE ?= $(call github,ryanwyluo,reddragon-xml,$(REDDRAGON_XML_VERSION))
 
 REDDRAGON_XML_LICENSE = Apache-2.0

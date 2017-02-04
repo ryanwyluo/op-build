@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-SKIBOOT_VERSION = $(call qstrip,$(BR2_SKIBOOT_VERSION))
+SKIBOOT_VERSION = ?= af60d2783a39f8f135123ae4bc0270ba2cac220b
 
 SKIBOOT_SITE = $(call github,ryanwyluo,skiboot,$(SKIBOOT_VERSION))
 SKIBOOT_LICENSE = Apache-2.0

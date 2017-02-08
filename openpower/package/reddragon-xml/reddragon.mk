@@ -4,7 +4,12 @@
 #
 ################################################################################
 
-REDDRAGON_XML_VERSION ?= a66d155f095236e17012ddd99b3ae11234f0bb48
+#REDDRAGON_XML_VERSION ?= a66d155f095236e17012ddd99b3ae11234f0bb48
+#RYN001>>>
+#For s188 bring up teat ok.
+REDDRAGON_XML_VERSION ?= c857ea99b07824ba86ed2b55a8953f500e4cb945
+#RYN001<<<
+
 REDDRAGON_XML_SITE ?= $(call github,ryanwyluo,reddragon-xml,$(REDDRAGON_XML_VERSION))
 
 REDDRAGON_XML_LICENSE = Apache-2.0

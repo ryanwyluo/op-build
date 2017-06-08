@@ -4,7 +4,7 @@
 #
 ################################################################################
 
-PPE42_BINUTILS_VERSION ?= 5b161fc30519a965f16e7e73c3410a388140cba1
+PPE42_BINUTILS_VERSION ?= ded0eff199fa1d9bd8be5a78935e8f023a2c5fad
 PPE42_BINUTILS_SITE ?= $(call github,open-power,ppe42-binutils,$(PPE42_BINUTILS_VERSION))
 PPE42_BINUTILS_LICENSE = GPLv3+
 
@@ -21,8 +21,8 @@ define HOST_PPE42_BINUTILS_BUILD_CMDS
 					--enable-shared \
 					--enable-64-bit-bfd \
 					&& \
-        make configure-host && \
-        make LDFLAGS=-all-static CFLAGS=-Wno-error=unused-value
+        $(MAKE) configure-host && \
+        $(MAKE) LDFLAGS=-all-static CFLAGS=-Wno-error
 endef
 
 define HOST_PPE42_BINUTILS_INSTALL_CMDS

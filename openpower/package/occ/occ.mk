@@ -4,12 +4,21 @@
 #
 ################################################################################
 
+<<<<<<< HEAD
 OCC_VERSION_BRANCH_MASTER_P8 ?= 10db378658a6f6be901e185d88d021dd20299a6c
 OCC_VERSION_BRANCH_MASTER ?= 64fcfd7e3f3899e761d21eda204b53114d494aaa
+=======
+OCC_VERSION_BRANCH_MASTER_P8 ?= 28f2cec690b7f19548ce860a8820f519e6c39a6a
+OCC_VERSION_BRANCH_MASTER ?= bc34ad5806549a7a20079745b2b1f8ef439ade0c
+>>>>>>> 3a95724ea7d6f32b794bd1362cb07332f4abde03
 
 OCC_VERSION ?= $(if $(BR2_OPENPOWER_POWER9),$(OCC_VERSION_BRANCH_MASTER),$(OCC_VERSION_BRANCH_MASTER_P8))
 OCC_SITE ?= $(call github,open-power,occ,$(OCC_VERSION))
 OCC_LICENSE = Apache-2.0
+
+OCC_LICENSE_FILES_P8 = src/LICENSE
+OCC_LICENSE_FILES_P9 = LICENSE
+OCC_LICENSE_FILES ?= $(if $(BR2_OPENPOWER_POWER9),$(OCC_LICENSE_FILES_P9),$(OCC_LICENSE_FILES_P8))
 
 OCC_INSTALL_IMAGES = YES
 OCC_INSTALL_TARGET = NO
@@ -24,15 +33,15 @@ OCC_DEPENDENCIES ?= $(if $(BR2_OPENPOWER_POWER9),$(OCC_DEPENDENCIES_P9),$(OCC_DE
 
 define OCC_APPLY_PATCHES
        if [ "$(BR2_OPENPOWER_POWER9)" == "y" ]; then \
-           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/package/occ/p9Patches \*.patch; \
-           if [ -d $(BR2_EXTERNAL)/custom/patches/occ/p9Patches ]; then \
-               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/custom/patches/occ/p9Patches \*.patch; \
+           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/package/occ/p9Patches \*.patch; \
+           if [ -d $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/occ/p9Patches ]; then \
+               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/occ/p9Patches \*.patch; \
            fi; \
        fi; \
        if [ "$(BR2_OPENPOWER_POWER8)" == "y" ]; then \
-           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/package/occ/p8Patches \*.patch; \
-           if [ -d $(BR2_EXTERNAL)/custom/patches/occ/p8Patches ]; then \
-               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/custom/patches/occ/p8Patches \*.patch; \
+           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/package/occ/p8Patches \*.patch; \
+           if [ -d $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/occ/p8Patches ]; then \
+               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/occ/p8Patches \*.patch; \
            fi; \
        fi;
 endef

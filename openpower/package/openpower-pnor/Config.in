@@ -7,12 +7,17 @@ config BR2_PACKAGE_OPENPOWER_PNOR
         select BR2_PACKAGE_OPENPOWER_FFS
         select BR2_PACKAGE_OCC
         select BR2_PACKAGE_CAPP_UCODE
+<<<<<<< HEAD
         select BR2_PACKAGE_BARRELEYE_XML if (BR2_OPENPOWER_XML_PACKAGE = "barreleye-xml")
         select BR2_PACKAGE_FIRESTONE_XML if (BR2_OPENPOWER_XML_PACKAGE = "firestone-xml")
         select BR2_PACKAGE_REDDRAGON_XML if (BR2_OPENPOWER_XML_PACKAGE = "reddragon-xml")
         select BR2_PACKAGE_GARRISON_XML if (BR2_OPENPOWER_XML_PACKAGE = "garrison-xml")
         select BR2_PACKAGE_HABANERO_XML if (BR2_OPENPOWER_XML_PACKAGE = "habanero-xml")
         select BR2_PACKAGE_PALMETTO_XML if (BR2_OPENPOWER_XML_PACKAGE = "palmetto-xml")
+=======
+        select BR2_PACKAGE_IMA_CATALOG
+	select BR2_PACKAGE_MACHINE_XML
+>>>>>>> 3a95724ea7d6f32b794bd1362cb07332f4abde03
         help
             Utilites for building a targeting binary image
 
@@ -25,11 +30,6 @@ config BR2_OPENPOWER_CONFIG_NAME
         string "Name of configuration"
         help
             String used to define configuration name
-
-config BR2_OPENPOWER_XML_PACKAGE
-        string "Name of xml/targeting package"
-        help
-            String defines the xml/targeting package used
 
 config BR2_OPENPOWER_PNOR_FILENAME
         string "Name of pnor file to be created"
@@ -73,6 +73,16 @@ config BR2_HOSTBOOT_BINARY_WINK_FILENAME
         string "Name of winkle hostboot binary"
         help
             String used to define name of winkle hostboot binary file
+
+config BR2_WOFDATA_FILENAME
+        string "Name of wofdata original file"
+        help
+            String used to define name of wofdata original file
+
+config BR2_WOFDATA_BINARY_FILENAME
+        string "Name of wofdata binary file"
+        help
+            String used to define name of wofdata binary ecc'd file
 
 config BR2_IMA_CATALOG_FILENAME
         string "Name of IMA catalog binary"

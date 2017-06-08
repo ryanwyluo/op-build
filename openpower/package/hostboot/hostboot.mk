@@ -3,34 +3,40 @@
 # hostboot
 #
 ################################################################################
+<<<<<<< HEAD
 HOSTBOOT_VERSION_BRANCH_MASTER_P8 ?= 678e9866a84c1d25c1a432dee39fd260c1f1d76e
 HOSTBOOT_VERSION_BRANCH_MASTER ?= 6ac254a49dc82a8c3007adb0d47c9feea75672b0
+=======
+HOSTBOOT_VERSION_BRANCH_MASTER_P8 ?= 695bd891343faf1f0ef85fe53148590e58239efd
+HOSTBOOT_VERSION_BRANCH_MASTER ?= d96098eaf93f873dc859dacb1b91eb95f1c8877a
+>>>>>>> 3a95724ea7d6f32b794bd1362cb07332f4abde03
 
 HOSTBOOT_VERSION ?= $(if $(BR2_OPENPOWER_POWER9),$(HOSTBOOT_VERSION_BRANCH_MASTER),$(HOSTBOOT_VERSION_BRANCH_MASTER_P8))
 HOSTBOOT_SITE ?= $(call github,open-power,hostboot,$(HOSTBOOT_VERSION))
 
 HOSTBOOT_LICENSE = Apache-2.0
+HOSTBOOT_LICENSE_FILES = LICENSE
 HOSTBOOT_DEPENDENCIES = host-binutils
 
 HOSTBOOT_INSTALL_IMAGES = YES
 HOSTBOOT_INSTALL_TARGET = NO
 
 HOSTBOOT_ENV_VARS=$(TARGET_MAKE_ENV) \
-    CONFIG_FILE=$(BR2_EXTERNAL)/configs/hostboot/$(BR2_HOSTBOOT_CONFIG_FILE) \
+    CONFIG_FILE=$(BR2_EXTERNAL_OP_BUILD_PATH)/configs/hostboot/$(BR2_HOSTBOOT_CONFIG_FILE) \
     OPENPOWER_BUILD=1 CROSS_PREFIX=$(TARGET_CROSS) HOST_PREFIX="" HOST_BINUTILS_DIR=$(HOST_BINUTILS_DIR) \
     HOSTBOOT_VERSION=`cat $(HOSTBOOT_VERSION_FILE)` 
 
 define HOSTBOOT_APPLY_PATCHES
        if [ "$(BR2_OPENPOWER_POWER9)" == "y" ]; then \
-           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/package/hostboot/p9Patches \*.patch; \
-           if [ -d $(BR2_EXTERNAL)/custom/patches/hostboot/p9Patches ]; then \
-               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/custom/patches/hostboot/p9Patches \*.patch; \
+           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/package/hostboot/p9Patches \*.patch; \
+           if [ -d $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/hostboot/p9Patches ]; then \
+               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/hostboot/p9Patches \*.patch; \
            fi; \
        fi; \
        if [ "$(BR2_OPENPOWER_POWER8)" == "y" ]; then \
-           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/package/hostboot/p8Patches \*.patch; \
-           if [ -d $(BR2_EXTERNAL)/custom/patches/hostboot/p8Patches ]; then \
-               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL)/custom/patches/hostboot/p8Patches \*.patch; \
+           $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/package/hostboot/p8Patches \*.patch; \
+           if [ -d $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/hostboot/p8Patches ]; then \
+               $(APPLY_PATCHES) $(@D) $(BR2_EXTERNAL_OP_BUILD_PATH)/custom/patches/hostboot/p8Patches \*.patch; \
            fi; \
        fi;
 endef

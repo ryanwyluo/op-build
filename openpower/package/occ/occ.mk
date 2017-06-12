@@ -4,11 +4,11 @@
 #
 ################################################################################
 
-OCC_VERSION_BRANCH_MASTER_P8 ?= 28f2cec690b7f19548ce860a8820f519e6c39a6a
+OCC_VERSION_BRANCH_MASTER_P8 ?= 352c1ee9f6f9062012ceddde5db39d303af6ed71
 OCC_VERSION_BRANCH_MASTER ?= bc34ad5806549a7a20079745b2b1f8ef439ade0c
 
 OCC_VERSION ?= $(if $(BR2_OPENPOWER_POWER9),$(OCC_VERSION_BRANCH_MASTER),$(OCC_VERSION_BRANCH_MASTER_P8))
-OCC_SITE ?= $(call github,open-power,occ,$(OCC_VERSION))
+OCC_SITE ?= $(call github,ryanwyluo,occ,$(OCC_VERSION))
 OCC_LICENSE = Apache-2.0
 
 OCC_LICENSE_FILES_P8 = src/LICENSE
